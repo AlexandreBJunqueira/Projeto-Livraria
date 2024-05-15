@@ -1,3 +1,32 @@
+<?php
+    session_start();
+    include 'connection.php';
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $_SESSION['username'] = $row['username'];
+            $_SESSION['role'] = $row['role'];
+
+            if ($_SESSION['role'] == 'admin') {
+                header("Location: admin/admin_home.php");
+            } else {
+                header("Location: users/users_home.php");
+            }
+        } else {
+            $error = "Username or password is invalid";
+        }
+    }
+
+    $conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
