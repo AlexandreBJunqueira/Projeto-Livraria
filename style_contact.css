@@ -1,0 +1,110 @@
+/* Estilos para o corpo e fundo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9; /* Fundo suave */
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para o cabeçalho */
+header {
+    background-color: #491254; /* Cor principal */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Estilos para a navegação */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Estilos para o conteúdo principal */
+main {
+    padding: 20px;
+}
+
+h2 {
+    color: #491254; /* Cor principal */
+}
+
+p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 80%;
+}
+
+input[type="submit"] {
+    background-color: #491254; /* Cor principal */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Estilos para o rodapé */
+footer {
+    background-color: #491254; /* Cor principal */
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.login-btn {
+    background-color: #ffffff; /* Cor de fundo */
+    border: none; /* Sem borda */
+    color: #491254; /* Cor do texto */
+    padding: 10px 20px; /* Espaçamento interno */
+    text-align: center; /* Alinhamento de texto */
+    text-decoration: none; /* Sem decoração de texto */
+    display: inline-block; /* Exibição em linha */
+    font-size: 16px; /* Tamanho da fonte */
+    margin: 10px; /* Margem externa */
+    cursor: pointer; /* Cursor de mouse */
+    border-radius: 4px; /* Borda arredondada */
+    position: absolute; /* Posicionamento absoluto */
+    top: 10px; /* Distância do topo */
+    right: 10px; /* Distância da direita */
+}
+
+/* Estilos quando o mouse passa por cima do botão */
+.login-btn:hover {
+    background-color: #ffac33; /* Nova cor de fundo ao passar o mouse */
+    color: white;
+}
