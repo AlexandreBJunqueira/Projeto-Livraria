@@ -38,7 +38,7 @@
 <body>
     <div class="login-container">
         <h2>Entre na sua Conta</h2>
-        <form id="login-form">
+        <form id="login-form" action="login.php" method="post">
             <div class="form-group">
                 <label for="username">Nome do Usuário:</label>
                 <input type="text" id="username" name="username" required>
@@ -48,11 +48,13 @@
                 <input type="password" id="password" name="password" required>
             </div>
             <button type="submit">Login</button>
-            <p id="error-message" class="error-message"></p>
         </form>
         <a href="index.html" class="back-btn">Voltar à página inicial</a>
     </div>
-
-    <script src="login.js"></script>
+    <?php
+    if (isset($error_message)) {
+        echo "<div class='error-message'>$error_message</div>";
+    }
+    ?>
 </body>
 </html>
