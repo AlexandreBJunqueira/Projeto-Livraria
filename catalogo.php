@@ -1,27 +1,8 @@
 <?php
-// Estabelecendo conexão com o banco de dados
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "Lab07";
-
-// Criando a conexão
-$conn = new mysqli($servername, $username, $password, $database);
-
-// Verificando a conexão
-if ($conn->connect_error) {
-    die("Conexão falhou: " . $conn->connect_error);
-}
-
-// Consulta SQL para selecionar todos os livros da tabela "livros"
+session_start();
+include 'connection.php';
 $sql = "SELECT * FROM livros";
 $result = $conn->query($sql);
-
-// Verificando se a consulta foi executada com sucesso
-if (!$result) {
-    die("Erro na consulta SQL: " . $conn->error);
-}
-
 ?>
 
 <!DOCTYPE html>

@@ -1,5 +1,5 @@
 <?php
-include 'connection.php';
+include '../connection.php';
 
 $id = $_GET['id'];
 $sql = "SELECT * FROM livros WHERE id=$id";

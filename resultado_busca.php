@@ -17,16 +17,7 @@
     </header>
     <main>
         <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $database = "Lab07";
-
-        $conn = new mysqli($servername, $username, $password, $database);
-
-        if ($conn->connect_error) {
-            die("Conexão falhou: " . $conn->connect_error);
-        }
+        include 'connection.php';
 
         if(isset($_GET['search'])) {
             $search = $_GET['search'];

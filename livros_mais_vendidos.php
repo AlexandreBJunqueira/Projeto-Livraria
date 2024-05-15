@@ -14,19 +14,7 @@
             <th>Total de Vendas</th>
         </tr>
         <?php
-        // Conexão com o banco de dados (substitua os valores conforme necessário)
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $database = "Lab07";
-
-        // Conectando ao banco de dados
-        $conn = new mysqli($servername, $username, $password, $database);
-
-        // Verificando a conexão
-        if ($conn->connect_error) {
-            die("Falha na conexão: " . $conn->connect_error);
-        }
+        include 'connection.php';
 
         // Consulta SQL para encontrar os 5 livros mais vendidos
         $sql = "SELECT id_livro, COUNT(id_livro) AS total_vendas FROM vendas GROUP BY id_livro ORDER BY total_vendas DESC LIMIT 5";
