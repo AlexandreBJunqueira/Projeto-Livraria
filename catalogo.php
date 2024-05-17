@@ -44,6 +44,8 @@ $result = $conn->query($sql);
         <p>&copy; 2024 Livraria. Todos os direitos reservados.</p>
     </footer>
 </body>
+<p>_</p>
+<p>.</p>
 </html>
 
 <?php

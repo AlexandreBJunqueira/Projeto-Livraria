@@ -33,7 +33,7 @@ $result = $conn->query($sql);
             <!-- Adicione mais links de navegação, se necessário -->
         </ul>
     </nav>
-    <a href="../logout.php" class="logout-btn">Logout</a>
+    <a href="../logout.php" class="login-btn">Logout</a>
 </header>
 <body>
     <table border="1">
@@ -69,6 +69,10 @@ $result = $conn->query($sql);
         }
         ?>
     </table>
+    <p>_</p>
+    <p>.</p>
 </body>
+<footer>
+    <p>&copy; 2024 Livraria. Todos os direitos reservados.</p>
+</footer>
 </html>
-

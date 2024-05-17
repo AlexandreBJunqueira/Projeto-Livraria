@@ -41,9 +41,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Editar Livro</title>
+    <link rel="stylesheet" href="edit.css">
 </head>
+<header>
+    <h1>Editar Livro</h1>
+    <nav>
+        <ul>
+            <li><a href="admin_home.php">Voltar</a></li>
+        </ul>
+    </nav>
+</header>
 <body>
-    <h2>Editar Livro</h2>
     <form action="" method="post" enctype="multipart/form-data">
         Capa: <input type="file" name="capa"><br>
         Título: <input type="text" name="titulo" value="<?php echo $row['titulo']; ?>" required><br>
@@ -56,4 +64,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 </body>
 </html>
-
