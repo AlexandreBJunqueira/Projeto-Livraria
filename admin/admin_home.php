@@ -23,9 +23,19 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Livros</title>
+    <link rel="stylesheet" href="admin_home.css">
 </head>
-<body>
+<header>
     <h1>Lista de Livros</h1>
+    <nav>
+        <ul>
+            <li><a href="insert.php">Adicionar Livro</a></li>
+            <!-- Adicione mais links de navegação, se necessário -->
+        </ul>
+    </nav>
+    <a href="../logout.php" class="logout-btn">Logout</a>
+</header>
+<body>
     <table border="1">
         <tr>
             <th>ID</th>
@@ -36,6 +46,7 @@ $result = $conn->query($sql);
             <th>Descrição</th>
             <th>Data de Publicação</th>
             <th>Gênero</th>
+            <th>Alterações</th>
         </tr>
         <?php
         if ($result->num_rows > 0) {
@@ -58,8 +69,6 @@ $result = $conn->query($sql);
         }
         ?>
     </table>
-    <a href="insert.php">Adicionar livro</a>
 </body>
-<a href="../logout.php" class="back-btn">Voltar à página inicial</a>
 </html>
 
