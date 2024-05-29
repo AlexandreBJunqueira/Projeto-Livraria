@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+
+header {
+    background-color: #491254; 
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+nav ul li a:hover {
+    color: #ffac33; 
+}
+
+h2 {
+    color: #491254; /* Cor principal */
+    margin-left: 128px; /* Adicionar espaço à direita */
+}
+
+table {
+    width: 80%; 
+    margin: 0 auto; 
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #491254; 
+    color: #fff;
+}
+
+footer {
+    background-color: #491254; 
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+}
+
+.login-btn {
+    background-color: #ffffff; /* Cor de fundo */
+    border: none; /* Sem borda */
+    color: #491254; /* Cor do texto */
+    padding: 10px 20px; /* Espaçamento interno */
+    text-align: center; /* Alinhamento de texto */
+    text-decoration: none; /* Sem decoração de texto */
+    display: inline-block; /* Exibição em linha */
+    font-size: 16px; /* Tamanho da fonte */
+    margin: 10px; /* Margem externa */
+    cursor: pointer; /* Cursor de mouse */
+    border-radius: 4px; /* Borda arredondada */
+    position: absolute; /* Posicionamento absoluto */
+    top: 10px; /* Distância do topo */
+    right: 10px; /* Distância da direita */
+}
+
+/* Estilos quando o mouse passa por cima do botão */
+.login-btn:hover {
+    background-color: #ffac33; /* Nova cor de fundo ao passar o mouse */
+    color: white;
+}

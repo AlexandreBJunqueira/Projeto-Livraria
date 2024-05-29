@@ -1,0 +1,53 @@
+/* Estilos para o corpo e fundo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9; /* Fundo suave */
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para o conteúdo principal */
+.container {
+    width: 300px;
+    margin: 100px auto;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.container h1 {
+    color: #491254; /* Cor principal */
+}
+
+.container p {
+    color: #333;
+}
+
+#logout-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #491254; /* Cor principal */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#logout-button:hover {
+    background-color: #ffac33; /* Cor de destaque ao passar o mouse */
+}
+
+/* Estilos para o rodapé */
+footer {
+    background-color: #491254; /* Cor principal */
+    color: #fff;
+    text-align: center;
+    padding: 5px 0; /* Tamanho do padding reduzido */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px; /* Tamanho da fonte reduzido */
+}

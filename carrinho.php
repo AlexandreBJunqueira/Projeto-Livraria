@@ -1,14 +1,16 @@
 <?php
+
 session_start();
-if (!isset($_SESSION['usuario_id'])) {
+include 'connection.php';
+
+if (!isset($_SESSION['username'])) {
     header("Location: login.php");
     exit();
 }
 
-$usuario_id = $_SESSION['usuario_id'];
-$conn = new mysqli("localhost", "seu_usuario", "sua_senha", "sua_base_de_dados");
-$sql = "SELECT c.id, l.titulo, l.preco, c.quantidade FROM carrinho c
-        JOIN livros l ON c.livro_id = l.id WHERE c.usuario_id = ?";
+$usuario_id = $_SESSION['username'];
+$sql = "SELECT l.titulo, l.autor, c.quantidade FROM carrinho c
+        JOIN livros l ON c.livro_id = l.id WHERE c.username = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $usuario_id);
 $stmt->execute();
@@ -19,8 +21,19 @@ $result = $stmt->get_result();
 <html>
 <head>
     <title>Carrinho de Compras</title>
+    <link rel="stylesheet" href="style_carrinho.css">
 </head>
 <body>
+    <header>
+        <h1>Dados Literários</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Continuar Comprando</a></li>
+                <li><a href="logout.php">Log out</a></li>
+
+            </ul>
+        </nav>
+    </header>
     <h1>Seu Carrinho de Compras</h1>
     <table>
         <tr>
@@ -50,10 +63,13 @@ $result = $stmt->get_result();
         </tr>
         <?php endwhile; ?>
     </table>
-    <a href="index.php">Continuar Comprando</a>
     <a href="concluir_compra.php">Concluir Compra</a>
+    <footer>
+        <p>&copy; 2024 Dados Literários. Todos os direitos reservados.</p>
+    </footer>
 </body>
 </html>
+
 
 <?php
 $stmt->close();
