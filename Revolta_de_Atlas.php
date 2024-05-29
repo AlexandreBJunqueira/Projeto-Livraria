@@ -31,7 +31,31 @@
         <p>&copy; 2024 Dados Literários. Todos os direitos reservados.</p>
     </footer>
 </body>
+<form action="adicionar_ao_carrinho.php" method="POST">
+    <input type="hidden" name="livro_id" value="<?php echo $livro_id; ?>">
+    <button type="submit">Incluir no Carrinho</button>
+</form>
 </html>
 
+<?php
+session_start();
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: login.php");
+    exit();
+}
 
+$usuario_id = $_SESSION['usuario_id'];
+$livro_id = $_POST['livro_id'];
+$quantidade = 1; // ou use um input para quantidade
 
+$conn = new mysqli("localhost", "seu_usuario", "sua_senha", "sua_base_de_dados");
+$sql = "INSERT INTO carrinho (usuario_id, livro_id, quantidade) VALUES (?, ?, ?)
+        ON DUPLICATE KEY UPDATE quantidade = quantidade + 1";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("iii", $usuario_id, $livro_id, $quantidade);
+$stmt->execute();
+$stmt->close();
+$conn->close();
+
+header("Location: pagina_do_livro.php?livro_id=" . $livro_id);
+?>
