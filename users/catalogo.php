@@ -32,7 +32,7 @@ $result = $conn->query($sql);
             echo "<table>";
             echo "<tr><th>Título</th><th>Autor</th></tr>";
             while($row = $result->fetch_assoc()) {
-                echo "<tr><td>" . $row["titulo"] . "</td><td>" . $row["autor"] . "</td></tr>";
+                echo "<tr><td><a href='modelo_livro.php?id=" . $row["id"] . "'>" . $row["titulo"] . "</a></td><td>" . $row["autor"] . "</td></tr>";
             }
             echo "</table>";
         } else {
@@ -44,8 +44,6 @@ $result = $conn->query($sql);
         <p>&copy; 2024 Livraria. Todos os direitos reservados.</p>
     </footer>
 </body>
-<p>_</p>
-<p>.</p>
 </html>
 
 <?php

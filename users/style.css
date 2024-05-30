@@ -99,3 +99,35 @@ footer {
     background-color: #ffac33; /* Nova cor de fundo ao passar o mouse */
     color: white;
 }
+
+/* Estilo para o formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+    margin-bottom: 60px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para o botão dentro do formulário */
+form button[type="submit"] {
+    background-color: #491254; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    padding: 10px 20px; /* Espaçamento interno */
+    font-size: 16px; /* Tamanho da fonte */
+    border: none; /* Remover bordas */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+    transition: background-color 0.3s; /* Transição suave para o efeito hover */
+    margin-top: 10px; /* Margem superior para espaçamento */
+}
+
+/* Estilo para o efeito hover no botão */
+form button[type="submit"]:hover {
+    background-color: #ffac33; /* Cor de fundo ao passar o mouse */
+}

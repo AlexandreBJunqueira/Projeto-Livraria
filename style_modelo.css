@@ -40,6 +40,12 @@ h2 {
     color: #491254; /* Cor principal */
 }
 
+.error-message {
+    background-color: #491254;
+    color: white;
+    text-align: center;
+}
+
 img {
     width: 200px; /* Defina a largura desejada em pixels */
     height: 280px; /* Defina a altura desejada em pixels */

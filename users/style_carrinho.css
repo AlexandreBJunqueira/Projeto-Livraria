@@ -28,10 +28,6 @@ nav ul li a {
     text-decoration: none;
 }
 
-nav ul li a:hover {
-    color: #ffac33;
-}
-
 h1 {
     color: #491254;
     text-align: center;

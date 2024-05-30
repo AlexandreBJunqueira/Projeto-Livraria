@@ -24,16 +24,6 @@ $result = $stmt->get_result();
     <link rel="stylesheet" href="style_carrinho.css">
 </head>
 <body>
-    <header>
-        <h1>Dados Literários</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Continuar Comprando</a></li>
-                <li><a href="logout.php">Log out</a></li>
-
-            </ul>
-        </nav>
-    </header>
     <h1>Seu Carrinho de Compras</h1>
     <table>
         <tr>
@@ -63,7 +53,8 @@ $result = $stmt->get_result();
         </tr>
         <?php endwhile; ?>
     </table>
-    <a href="concluir_compra.php">Concluir Compra</a>
+    <a href="index.html" style="display: inline-block; margin-left: 33%;">Continuar Comprando</a>
+    <a href="concluir_compra.php" style="display: inline-block; margin-bottom: 80px;">Concluir Compra</a>
     <footer>
         <p>&copy; 2024 Dados Literários. Todos os direitos reservados.</p>
     </footer>
