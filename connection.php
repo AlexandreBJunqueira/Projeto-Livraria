@@ -2,7 +2,7 @@
 // Configurações do banco de dados
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "abj19032005";
 $dbname = "livraria";
 
 // Conexão com o banco de dados

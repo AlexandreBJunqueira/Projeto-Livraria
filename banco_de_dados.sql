@@ -31,19 +31,8 @@ CREATE TABLE `carrinho` (
   `username` varchar(20) NOT NULL,
   `livro_id` int NOT NULL,
   `quantidade` int NOT NULL
-<<<<<<< HEAD
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-=======
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Extraindo dados da tabela `carrinho`
---
-
-INSERT INTO `carrinho` (`username`, `livro_id`, `quantidade`) VALUES
-('user1', 1001, 1),
-('user1', 1002, 1);
->>>>>>> 3ceee2583fadb1544994aabacc03d9a18361ccae
 
 -- --------------------------------------------------------
 
@@ -57,11 +46,7 @@ CREATE TABLE `livros` (
   `titulo` varchar(20) DEFAULT NULL,
   `autor` varchar(8) DEFAULT NULL,
   `isbn` bigint DEFAULT NULL,
-<<<<<<< HEAD
   `descricao` varchar(1000) DEFAULT NULL,
-=======
-  `descricao` varchar(12) DEFAULT NULL,
->>>>>>> 3ceee2583fadb1544994aabacc03d9a18361ccae
   `data_pub` varchar(10) DEFAULT NULL,
   `genero` varchar(7) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;

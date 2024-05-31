@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['livro_id'])) {
     </header>
     <main>
         <h2><?php echo htmlspecialchars($row['titulo']); ?></h2>
-        <img src="../<?php echo htmlspecialchars($row['capa']); ?>" alt="<?php echo htmlspecialchars($row['titulo']); ?>">
+        <img src="<?php echo htmlspecialchars($row['capa']); ?>" alt="<?php echo htmlspecialchars($row['titulo']); ?>">
         <div>
             <p class="author">Autor: <?php echo htmlspecialchars($row['autor']); ?></p>
             <p class="price">Gênero: <?php echo htmlspecialchars($row['genero']); ?></p>
