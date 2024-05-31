@@ -11,6 +11,12 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
+-- Criar o banco de dados `livraria` se não existir
+CREATE DATABASE IF NOT EXISTS `livraria` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
+-- Usar o banco de dados `livraria`
+USE `livraria`;
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -31,7 +37,7 @@ CREATE TABLE `carrinho` (
   `username` varchar(20) NOT NULL,
   `livro_id` int NOT NULL,
   `quantidade` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `carrinho`
@@ -49,13 +55,13 @@ INSERT INTO `carrinho` (`username`, `livro_id`, `quantidade`) VALUES
 
 CREATE TABLE `livros` (
   `id` int NOT NULL,
-  `capa` varchar(18) DEFAULT NULL,
-  `titulo` varchar(8) DEFAULT NULL,
-  `autor` varchar(8) DEFAULT NULL,
+  `capa` varchar(100) DEFAULT NULL,
+  `titulo` varchar(100) DEFAULT NULL,
+  `autor` varchar(100) DEFAULT NULL,
   `isbn` bigint DEFAULT NULL,
-  `descricao` varchar(12) DEFAULT NULL,
-  `data_pub` varchar(10) DEFAULT NULL,
-  `genero` varchar(7) DEFAULT NULL
+  `descricao` varchar(1000) DEFAULT NULL,
+  `data_pub` varchar(100) DEFAULT NULL,
+  `genero` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
@@ -162,7 +168,13 @@ INSERT INTO `livros` (`id`, `capa`, `titulo`, `autor`, `isbn`, `descricao`, `dat
 (1097, 'capas/livro97.png', 'Livro97', 'Autor97', 275629729515, 'descrição97', '2014-04-13', 'gênero3'),
 (1098, 'capas/livro98.png', 'Livro98', 'Autor98', 95722934002, 'descrição98', '2003-01-01', 'gênero1'),
 (1099, 'capas/livro99.png', 'Livro99', 'Autor99', 271171850582, 'descrição99', '2001-10-19', 'gênero2'),
-(1100, 'capas/livro100.png', 'Livro100', 'Autor100', 856396161723, 'descrição100', '2019-09-09', 'gênero2');
+(1100, 'capas/livro100.png', 'Livro100', 'Autor100', 856396161723, 'descrição100', '2019-09-09', 'gênero2'),
+(1101, 'capas/livro101.png', 'Revolta de Atlas', 'Ayn Rand', 856396161723, 'Na mitologia grega, o titã Atlas recebe de Zeus o castigo eterno de carregar nos ombros o peso dos céus. Neste clássico romance de Ayn Rand, os pensadores, os inovadores e os indivíduos criativos suportam o peso de um mundo decadente enquanto são explorados por parasitas que não reconhecem o valor do trabalho e da produtividade e que se valem da corrupção, da mediocridade e da burocracia para impedir o progresso individual e da sociedade. Mas até quando eles vão aguentar? Considerado o livro mais influente nos Estados Unidos depois da Bíblia, segundo a Biblioteca do Congresso americano, A revolta de Atlas é um romance monumental. A história se passa numa época imprecisa, quando as forças políticas de esquerda estão no poder. Último baluarte do que ainda resta do capitalismo num mundo infestado de repúblicas populares, os Estados Unidos estão em decadência e sua economia caminha para o colapso.', '2019-09-09', 'Ficção Distópica'),
+(1102, 'capas/livro102.png', 'Torto Arado', 'Itamar Vieira Junior', 856396161723, 'Clássico, instigante, arrebatador: assim pode ser definido Torto Arado, romance do jovem escritor baiano Itamar Vieira Junior. Laureado com o Prêmio Leya em 2018, teve sua primeira edição no mesmo ano em terras portuguesas. Desde 2019, quando foi lançado no Brasil pela editora Todavia, tem acumulado sucesso de público e de crítica. Em 2020, venceu os prêmios Jabuti e Oceanos. No momento em que escrevo essa breve resenha, no campo literário e nas páginas de jornais, sites e revistas dedicados ao assunto, não se fala em outra coisa. Uma obra polifônica, marcada pelas narrativas das irmãs Bibiana e Belonísia, e de uma entidade encantada, vozes femininas que expressam memórias coletivas e atribuladas de desigualdades raciais, sociais e de gênero, e também evocam as resistências ancestrais dos povos quilombolas, suas lutas e ligações com a terra.', '2019-09-09', 'Ficção'),
+(1103, 'capas/livro103.png', 'O Príncipe', 'Nicolau Maquiavel', 856396161723, 'Em 1512, a cidade foi invadida, quando houve até mesmo derramamento de sangue, e Maquiavel foi preso e exilado por ser um oficial republicano. Ele escreveu O Príncipe em 1513, durante seu exílio, mas sua obra não foi publicada até 1532, cinco anos após sua morte. Em 1513, conformou-se com o fato de que Florença seria governada por um príncipe, e assim começou a buscar um meio de se aliar ao novo governante para conseguir uma boa posição e liberdade política. Maquiavel não se tornou um conselheiro, mas deixou seu legado. Este resumo de O Príncipe condensa suas principais ideias. Ele mudou a forma de ver a política, tratando-a como uma estratégia para a manutenção do poder.', '2019-09-09', 'Político'),
+(1104, 'capas/livro104.png', 'Harry Potter', 'J.K Rowling', 856396161723, 'Harry Potter é um garoto cujos pais, feiticeiros, foram assassinados por um poderosíssimo bruxo quando ele ainda era um bebê. Ele foi levado, então, para a casa dos tios que nada tinham a ver com o sobrenatural. Pelo contrário. Até os 10 anos, Harry foi uma espécie de gata borralheira: maltratado pelos tios, herdava roupas velhas do primo gorducho, tinha óculos remendados e era tratado como um estorvo. No dia de seu aniversário de 11 anos, entretanto, ele parece deslizar por um buraco sem fundo, como o de Alice no país das maravilhas, que o conduz a um mundo mágico. Descobre sua verdadeira história e seu destino: ser um aprendiz de feiticeiro até o dia em que terá que enfrentar a pior força do mal, o homem que assassinou seus pais. O menino de olhos verde, magricela e desengonçado, tão habituado à rejeição, descobre, também, que é um herói no universo dos magos.', '2019-09-09', 'Ficção Fantástica'),
+(1105, 'capas/livro105.png', 'Principles for Dealing with the Changing World Order', 'Ray Dalio', 856396161723, '"Uma leitura provocativa... Há poucos tomos que mapeiam tão coerentemente histórias econômicas amplas quanto o Sr. Dalio. Talvez mais incomum, o Sr. Dalio conseguiu identificar métricas dessa história que podem ser aplicadas para entender o presente." —Andrew Ross Sorkin, The New York Times. De Ray Dalio, investidor lendário e autor do best-seller número 1 do New York Times, Principles, que passou meio século estudando as economias e os mercados globais, Princípios para Lidar com a Ordem Mundial em Mudança examina os períodos econômicos e políticos mais turbulentos da história para revelar por que os tempos futuros provavelmente serão radicalmente diferentes daqueles que experimentamos em nossas vidas — e oferecer conselhos práticos sobre como navegar bem por eles.', '2019-09-09', 'Economia');
+
 
 -- --------------------------------------------------------
 
@@ -302,7 +314,7 @@ CREATE TABLE `users` (
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `role` enum('admin','user') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `users`
