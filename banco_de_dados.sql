@@ -48,7 +48,7 @@ CREATE TABLE `livros` (
   `isbn` bigint DEFAULT NULL,
   `descricao` varchar(1000) DEFAULT NULL,
   `data_pub` varchar(10) DEFAULT NULL,
-  `genero` varchar(7) DEFAULT NULL
+  `genero` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
