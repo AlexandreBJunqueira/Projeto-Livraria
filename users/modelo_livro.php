@@ -81,13 +81,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['livro_id'])) {
             <p class="author">Autor: <?php echo htmlspecialchars($row['autor']); ?></p>
             <p class="price">Gênero: <?php echo htmlspecialchars($row['genero']); ?></p>
             <p><?php echo htmlspecialchars($row['descricao']); ?></p>
+            <p class="error-message"><?php echo $message; ?></p>
         </div>
         <form action="modelo_livro.php?id=<?php echo $livro_id; ?>" method="POST">
             <input type="hidden" name="livro_id" value="<?php echo $row['id']; ?>">
             <button type="submit">Incluir no Carrinho</button>
         </form>
         <!-- Exibir mensagens após o botão -->
-        <p class="error-message"><?php echo $message; ?></p>
     </main>
     <footer>
         <p>&copy; 2024 Livraria. Todos os direitos reservados.</p>

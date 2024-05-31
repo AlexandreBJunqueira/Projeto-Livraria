@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 include 'connection.php';
 
@@ -9,10 +8,10 @@ if (!isset($_SESSION['username'])) {
 }
 
 $usuario_id = $_SESSION['username'];
-$sql = "SELECT l.titulo, l.autor, c.quantidade FROM carrinho c
-        JOIN livros l ON c.livro_id = l.id WHERE c.username = ?";
+$sql = "SELECT livros.id, livros.titulo, livros.genero, livros.autor, carrinho.quantidade FROM carrinho
+        JOIN livros ON carrinho.livro_id = livros.id WHERE carrinho.username = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $usuario_id);
+$stmt->bind_param("s", $usuario_id);
 $stmt->execute();
 $result = $stmt->get_result();
 ?>
@@ -28,25 +27,23 @@ $result = $stmt->get_result();
     <table>
         <tr>
             <th>Livro</th>
-            <th>Preço</th>
+            <th>Gênero</th>
             <th>Quantidade</th>
-            <th>Total</th>
             <th>Ações</th>
         </tr>
         <?php while ($row = $result->fetch_assoc()): ?>
         <tr>
             <td><?php echo htmlspecialchars($row['titulo']); ?></td>
-            <td><?php echo number_format($row['preco'], 2); ?></td>
+            <td><?php echo htmlspecialchars($row['genero']); ?></td>
             <td><?php echo htmlspecialchars($row['quantidade']); ?></td>
-            <td><?php echo number_format($row['preco'] * $row['quantidade'], 2); ?></td>
             <td>
-                <form action="editar_carrinho.php" method="POST">
-                    <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                    <input type="number" name="quantidade" value="<?php echo $row['quantidade']; ?>" min="1">
+                <form action="editar.php" method="POST">
+                    <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['id']); ?>">
+                    <input type="number" name="quantidade" value="<?php echo htmlspecialchars($row['quantidade']); ?>" min="1">
                     <button type="submit">Atualizar</button>
                 </form>
-                <form action="excluir_do_carrinho.php" method="POST">
-                    <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                <form action="excluir.php" method="POST">
+                    <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['id']); ?>">
                     <button type="submit">Excluir</button>
                 </form>
             </td>
@@ -60,7 +57,6 @@ $result = $stmt->get_result();
     </footer>
 </body>
 </html>
-
 
 <?php
 $stmt->close();
