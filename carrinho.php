@@ -5,6 +5,9 @@ include 'connection.php';
 if (!isset($_SESSION['username'])) {
     header("Location: login.php");
     exit();
+} else {
+    header("Location: users/carrinho.php");
+    exit();
 }
 
 $usuario_id = $_SESSION['username'];

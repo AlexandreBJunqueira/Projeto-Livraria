@@ -2,6 +2,11 @@
 session_start();
 include 'connection.php';
 
+if (isset($_SESSION['username'])) {
+    header("Location: users/modelo_livro.php");
+    exit();
+}
+
 // Variável para armazenar mensagens de sucesso ou erro
 $message = "";
 
