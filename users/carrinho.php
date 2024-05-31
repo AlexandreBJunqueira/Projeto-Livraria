@@ -9,8 +9,11 @@ if (!isset($_SESSION['username'])) {
 }
 
 $usuario_id = $_SESSION['username'];
-$sql = "SELECT l.titulo, l.autor, c.quantidade FROM carrinho c
-        JOIN livros l ON c.livro_id = l.id WHERE c.username = ?";
+$sql = "SELECT l.titulo, l.autor, p.preco, c.quantidade 
+        FROM carrinho c
+        JOIN livros l ON c.livro_id = l.id 
+        JOIN pre__os p ON l.id = p.id_livro
+        WHERE c.username = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $usuario_id);
 $stmt->execute();

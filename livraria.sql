@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 10/05/2024 às 16:36
--- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.2.12
+-- Tempo de geração: 31-Maio-2024 às 15:39
+-- Versão do servidor: 8.0.34
+-- versão do PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,28 +18,48 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `lab07`
+-- Banco de dados: `livraria`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `livros`
+-- Estrutura da tabela `carrinho`
+--
+
+CREATE TABLE `carrinho` (
+  `username` varchar(20) NOT NULL,
+  `livro_id` int NOT NULL,
+  `quantidade` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `carrinho`
+--
+
+INSERT INTO `carrinho` (`username`, `livro_id`, `quantidade`) VALUES
+('user1', 1001, 1),
+('user1', 1002, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `livros`
 --
 
 CREATE TABLE `livros` (
-  `id` int(4) DEFAULT NULL,
+  `id` int NOT NULL,
   `capa` varchar(18) DEFAULT NULL,
   `titulo` varchar(8) DEFAULT NULL,
   `autor` varchar(8) DEFAULT NULL,
-  `isbn` bigint(12) DEFAULT NULL,
+  `isbn` bigint DEFAULT NULL,
   `descricao` varchar(12) DEFAULT NULL,
   `data_pub` varchar(10) DEFAULT NULL,
   `genero` varchar(7) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
--- Despejando dados para a tabela `livros`
+-- Extraindo dados da tabela `livros`
 --
 
 INSERT INTO `livros` (`id`, `capa`, `titulo`, `autor`, `isbn`, `descricao`, `data_pub`, `genero`) VALUES
@@ -147,17 +167,17 @@ INSERT INTO `livros` (`id`, `capa`, `titulo`, `autor`, `isbn`, `descricao`, `dat
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `pre__os`
+-- Estrutura da tabela `pre__os`
 --
 
 CREATE TABLE `pre__os` (
   `data` varchar(10) DEFAULT NULL,
-  `id_livro` int(4) DEFAULT NULL,
+  `id_livro` int DEFAULT NULL,
   `preco` decimal(5,2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
--- Despejando dados para a tabela `pre__os`
+-- Extraindo dados da tabela `pre__os`
 --
 
 INSERT INTO `pre__os` (`data`, `id_livro`, `preco`) VALUES
@@ -275,19 +295,41 @@ INSERT INTO `pre__os` (`data`, `id_livro`, `preco`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `vendas`
+-- Estrutura da tabela `users`
+--
+
+CREATE TABLE `users` (
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `role` enum('admin','user') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `users`
+--
+
+INSERT INTO `users` (`username`, `password`, `role`) VALUES
+('admin', 'password', 'admin'),
+('user1', 'password1', 'user'),
+('user2', 'password2', 'user'),
+('user3', 'password3', 'user');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `vendas`
 --
 
 CREATE TABLE `vendas` (
-  `id` int(5) DEFAULT NULL,
+  `id` int DEFAULT NULL,
   `data` varchar(10) DEFAULT NULL,
   `cliente` varchar(6) DEFAULT NULL,
-  `id_livro` int(4) DEFAULT NULL,
+  `id_livro` int DEFAULT NULL,
   `preco` decimal(5,2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
--- Despejando dados para a tabela `vendas`
+-- Extraindo dados da tabela `vendas`
 --
 
 INSERT INTO `vendas` (`id`, `data`, `cliente`, `id_livro`, `preco`) VALUES
@@ -5382,21 +5424,52 @@ INSERT INTO `vendas` (`id`, `data`, `cliente`, `id_livro`, `preco`) VALUES
 (32382, '2024-03-31', '003553', 1044, 59.94),
 (32383, '2024-03-31', '083366', 1048, 44.12),
 (32384, '2024-03-31', '098703', 1100, 38.37);
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `carrinho`
+--
+ALTER TABLE `carrinho`
+  ADD KEY `username` (`username`),
+  ADD KEY `livro_id` (`livro_id`);
+
+--
+-- Índices para tabela `livros`
+--
+ALTER TABLE `livros`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `livros`
+--
+ALTER TABLE `livros`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1101;
+
+--
+-- Restrições para despejos de tabelas
+--
+
+--
+-- Limitadores para a tabela `carrinho`
+--
+ALTER TABLE `carrinho`
+  ADD CONSTRAINT `carrinho_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`),
+  ADD CONSTRAINT `carrinho_ibfk_2` FOREIGN KEY (`livro_id`) REFERENCES `livros` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-CREATE TABLE IF NOT EXISTS users (
-    id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL,
-    password VARCHAR(50) NOT NULL,
-    role ENUM('admin', 'user') NOT NULL
-);
-
-INSERT INTO users (username, password, role) VALUES
-    ('admin', 'password', 'admin'),
-    ('user1', 'password1', 'user'),
-    ('user2', 'password2', 'user'),
-    ('user3', 'password3', 'user');

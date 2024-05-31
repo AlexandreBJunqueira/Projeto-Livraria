@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscar Livros - Livraria</title>
-    <link rel="stylesheet" href="style_busca.css">
+    <title>Compra Concluída</title>
+    <link rel="stylesheet" href="style.css">
     <style>
         body {
             margin: 0;
@@ -48,50 +48,16 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
         }
 
         h1 {
             margin-top: 0;
         }
-
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        label {
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        input[type="text"] {
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-            outline: none;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #491254;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #5f206e;
-        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Buscar Livros</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Página Inicial</a></li>
@@ -99,11 +65,26 @@
         </nav>
     </header>
     <main>
-        <form action="resultado_busca.php" method="GET">
-            <label for="search">Busque o livro:</label>
-            <input type="text" id="search" name="search" placeholder="Digite o ID ou o nome do livro" required>
-            <button type="submit">Buscar</button>
-        </form>
+        <?php
+        session_start();
+        include 'connection.php'; // Inclui o arquivo de conexão
+
+        // Supomos que o username está armazenado na sessão
+        $user = $_SESSION['username'];
+
+        // Remover todos os itens do carrinho para o usuário logado usando prepared statement
+        $stmt = $conn->prepare("DELETE FROM carrinho WHERE username = ?");
+        $stmt->bind_param("s", $user);
+
+        if ($stmt->execute()) {
+            echo "<h1>Parabéns. Sua compra foi concluída!</h1>";
+        } else {
+            echo "<h1>Erro ao concluir a compra: " . $stmt->error . "</h1>";
+        }
+
+        $stmt->close();
+        $conn->close();
+        ?>
     </main>
 </body>
 </html>
