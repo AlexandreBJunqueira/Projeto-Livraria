@@ -18,11 +18,16 @@ $result = $conn->query($sql);
         <h1>Catálogo de Livros</h1>
         <nav>
             <ul>
-                <li><a href="index.html">Página Inicial</a></li>
-                <!-- Adicione mais links de navegação, se necessário -->
+                <li><a href="index.html">Início</a></li>
+                <li><a href="livros_mais_vendidos.php">Livros mais vendidos</a></li>
+                <li><a href="busca.html">Busca de Livros</a></li>
+                <li><a href="carrinho.php">Carrinho de Compras</a></li>
+                <li><a href="about.html">Sobre nós</a></li>
+                <li><a href="contact.html">Contate-nos</a></li>
             </ul>
         </nav>
     </header>
+    <a href="logout.php" class="login-btn">Logout</a>
     <main>
         <h2>Livros Disponíveis</h2>
         <?php

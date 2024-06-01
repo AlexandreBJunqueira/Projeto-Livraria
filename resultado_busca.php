@@ -11,10 +11,16 @@
         <h1>Resultado da Busca</h1>
         <nav>
             <ul>
-                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="catalogo.php">Catálogo</a></li>
+                <li><a href="livros_mais_vendidos.php">Livros mais vendidos</a></li>
+                <li><a href="carrinho.php">Carrinho de Compras</a></li>
+                <li><a href="about.html">Sobre nós</a></li>
+                <li><a href="contact.html">Contate-nos</a></li>
             </ul>
         </nav>
     </header>
+    <a href="login.php" class="login-btn">Login</a>
     <main>
         <?php
         include 'connection.php';

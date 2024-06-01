@@ -66,23 +66,24 @@ footer {
 }
 
 .login-btn {
-    background-color: #ffffff;
-    border: none;
-    color: #491254;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 10px;
-    cursor: pointer;
-    border-radius: 4px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    background-color: #ffffff; /* Cor de fundo */
+    border: none; /* Sem borda */
+    color: #491254; /* Cor do texto */
+    padding: 10px 20px; /* Espaçamento interno */
+    text-align: center; /* Alinhamento de texto */
+    text-decoration: none; /* Sem decoração de texto */
+    display: inline-block; /* Exibição em linha */
+    font-size: 16px; /* Tamanho da fonte */
+    margin: 10px; /* Margem externa */
+    cursor: pointer; /* Cursor de mouse */
+    border-radius: 4px; /* Borda arredondada */
+    position: absolute; /* Posicionamento absoluto */
+    top: 10px; /* Distância do topo */
+    right: 10px; /* Distância da direita */
 }
 
+/* Estilos quando o mouse passa por cima do botão */
 .login-btn:hover {
-    background-color: #ffac33;
+    background-color: #ffac33; /* Nova cor de fundo ao passar o mouse */
     color: white;
 }

@@ -7,7 +7,19 @@
     <link rel="stylesheet" href="style_catalogo.css">
 </head>
 <body>
-    <h2>5 Livros Mais Vendidos</h2>
+    <header>
+        <h1>Livros mais vendidos</h1>
+        <nav>
+            <ul>
+                <li><a href="catalogo.php">Catálogo</a></li>
+                <li><a href="busca.html">Busca de Livros</a></li>
+                <li><a href="carrinho.php">Carrinho de Compras</a></li>
+                <li><a href="about.html">Sobre nós</a></li>
+                <li><a href="contact.html">Contate-nos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <a href="login.php" class="login-btn">Login</a>
     <table>
         <tr>
             <th>ID do Livro</th>
