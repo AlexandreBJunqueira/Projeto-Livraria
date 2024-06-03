@@ -17,14 +17,20 @@ $result = $conn->query($sql);
 </head>
 <body>
     <header>
-        <h1>5 Livros Mais Vendidos</h1>
+        <h1>Livros mais vendidos</h1>
         <nav>
             <ul>
-                <li><a href="index.html">Página Inicial</a></li>
-                <!-- Adicione mais links de navegação, se necessário -->
+                <li><a href="index.html">Início</a></li>
+                <li><a href="catalogo.php">Catálogo</a></li>
+                <li><a href="busca.html">Busca de Livros</a></li>
+                <li><a href="carrinho.php">Carrinho de Compras</a></li>
+                <li><a href="about.html">Sobre nós</a></li>
+                <li><a href="contact.html">Contate-nos</a></li>
             </ul>
         </nav>
+        </nav>
     </header>
+    <a href="logout.php" class="login-btn">Logout</a>
     <main>
         <h2>5 Livros Mais Vendidos</h2>
         <table>

@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscar Livros - Livraria</title>
-    <link rel="stylesheet" href="style_busca.css">
     <style>
         body {
             margin: 0;
@@ -14,10 +13,32 @@
         }
 
         header {
-            background-color: #491254;
+            background-color: #491254; /* Cor principal */
             color: #fff;
             padding: 20px;
             text-align: center;
+        }
+
+        /* Estilos para a navegação */
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Mudança de cor ao passar o mouse */
+        nav ul li a:hover {
+            color: #ffac33; /* Cor de destaque ao passar o mouse */
         }
 
         main {
@@ -66,6 +87,29 @@
         button:hover {
             background-color: #5f206e;
         }
+
+        .login-btn {
+            background-color: #ffffff; /* Cor de fundo */
+            border: none; /* Sem borda */
+            color: #491254; /* Cor do texto */
+            padding: 10px 20px; /* Espaçamento interno */
+            text-align: center; /* Alinhamento de texto */
+            text-decoration: none; /* Sem decoração de texto */
+            display: inline-block; /* Exibição em linha */
+            font-size: 16px; /* Tamanho da fonte */
+            margin: 10px; /* Margem externa */
+            cursor: pointer; /* Cursor de mouse */
+            border-radius: 4px; /* Borda arredondada */
+            position: absolute; /* Posicionamento absoluto */
+            top: 10px; /* Distância do topo */
+            right: 10px; /* Distância da direita */
+        }
+
+        /* Estilos quando o mouse passa por cima do botão */
+        .login-btn:hover {
+            background-color: #ffac33; /* Nova cor de fundo ao passar o mouse */
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -73,10 +117,16 @@
         <h1>Buscar Livros</h1>
         <nav>
             <ul>
-                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="catalogo.php">Catálogo</a></li>
+                <li><a href="livros_mais_vendidos.php">Livros mais vendidos</a></li>
+                <li><a href="carrinho.php">Carrinho de Compras</a></li>
+                <li><a href="about.html">Sobre nós</a></li>
+                <li><a href="contact.html">Contate-nos</a></li>
             </ul>
         </nav>
     </header>
+    <a href="login.php" class="login-btn">Login</a>
     <main>
         <form action="resultado_busca.php" method="GET">
             <label for="search">Busque o livro:</label>
